@@ -8,4 +8,6 @@ M.mac2dos  = any2any.mac2dos
 M.unix2mac = any2any.unix2mac
 M.mac2unix = any2any.mac2unix
 
-return M
+--M.fs = require "shellutils.fs"
+
+return setmetatable({}, {__index = function(_, k) return M[k] or require("shellutils."..k) end})
