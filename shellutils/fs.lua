@@ -12,6 +12,7 @@ do
 	if proxy then
 		fs = proxy -- workaround: convert from fs:foo(a) to fs.foo(a)
 		assert(inst.list and inst.list ~= proxy.list)
+		assert(inst._shadowself and not proxy._shadowself, "proxy shadowself issue!")
 	else
 		fs = inst
 	end
